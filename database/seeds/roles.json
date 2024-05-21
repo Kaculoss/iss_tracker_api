@@ -1,0 +1,6 @@
+[
+  { "name": "Super Admin", "description": "Administrator functions" },
+  { "name": "Admin", "description": "Executive functions" },
+  { "name": "Asset Manager", "description": "Asset functions" },
+  { "name": "Regular User", "description": "Regular user" }
+]

@@ -1,0 +1,65 @@
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - build
+  - deploy
+
+build_staging:
+  image: node:16
+  stage: build
+  script:
+    - yarn
+  environment:
+    name: staging
+  variables:
+    SSH_USER: $SSH_USER
+    SERVER_IP: $SERVER_IP
+  only:
+    - staging
+
+build_production:
+  image: node:16
+  stage: build
+  script:
+    - yarn
+  environment:
+    name: production
+  variables:
+    SSH_USER: $SSH_USER
+    SERVER_IP: $SERVER_IP
+
+deploy_staging:
+  stage: deploy
+  image: alpine
+  environment:
+    name: staging
+  script:
+    - apk add --no-cache rsync openssh
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_ed25519
+    - chmod 600 ~/.ssh/id_ed25519
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - chmod +x deploy.sh
+    - sh deploy.sh
+    - ssh $REMOTE_USER@$SERVER_ADDRESS 'bash -s' < install.sh
+  only:
+    - staging
+
+deploy_production:
+  stage: deploy
+  image: alpine
+  environment:
+    name: production
+  script:
+    - apk add --no-cache rsync openssh
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
+    - chmod 600 ~/.ssh/id_dsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - chmod +x deploy.sh
+    - sh deploy.sh
+    - ssh $SERVER_ADDRESS 'bash -s' < install.sh
+  only:
+    - main

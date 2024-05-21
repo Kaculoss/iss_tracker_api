@@ -1,0 +1,35 @@
+[
+  {
+    "name": "View Homepage"
+  },
+  {
+    "name": "View Users Page"
+  },
+  {
+    "name": "View Audit log Page"
+  },
+  {
+    "name": "View All Assets Page"
+  },
+  {
+    "name": "View Asset Page"
+  },
+  {
+    "name": "Assign Roles"
+  },
+  {
+    "name": "Create Asset"
+  },
+  {
+    "name": "Read Some Asset Info"
+  },
+  {
+    "name": "Read Full Asset Info"
+  },
+  {
+    "name": "Update Asset"
+  },
+  {
+    "name": "Delete Asset"
+  }
+]

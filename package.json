@@ -1,0 +1,50 @@
+{
+  "name": "yep-api",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "pm2 start --name yep-api --watch --update-env",
+    "run:migration": "yarn sequelize-cli db:migrate",
+    "run:seed": "node database/seeds/seed.js",
+    "run:jobs": "node src/jobs/index.js",
+    "test:email": "node --no-warnings --no-deprecation src/helpers/emailTest.js"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^7.7.0",
+    "axios": "^1.6.8",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "country-list": "^2.3.0",
+    "crypto": "^1.0.1",
+    "currency-list": "^1.0.8",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "google-auth-library": "^9.0.0",
+    "graphql": "^16.8.0",
+    "graphql-subscriptions": "^2.0.0",
+    "graphql-type-json": "^0.3.2",
+    "graphql-ws": "^5.15.0",
+    "helmet": "^7.0.0",
+    "is_js": "^0.9.0",
+    "js-yaml": "^4.1.0",
+    "jsonwebtoken": "^9.0.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.6",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.32.1",
+    "sequelize-cli": "^6.6.1",
+    "sequelize-state-machine": "^0.1.2",
+    "subscriptions-transport-ws": "^0.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

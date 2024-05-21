@@ -1,0 +1,29 @@
+[
+  {
+    "code": "ABC-0001",
+    "name": "Hp Pc",
+    "type": "laptop",
+    "price": 12,
+    "vendor": "Hp",
+    "description": "Laptop for Asset Manager",
+    "location": "accra"
+  },
+  {
+    "code": "ABC-0002",
+    "name": "Dell Pc",
+    "type": "laptop",
+    "price": 15,
+    "vendor": "Dell",
+    "description": "Laptop for Admin",
+    "location": "wow"
+  },
+  {
+    "code": "ABC-0003",
+    "name": "Canon",
+    "type": "printer",
+    "price": 34,
+    "vendor": "Canon",
+    "description": "Print documents",
+    "location": "wow"
+  }
+]

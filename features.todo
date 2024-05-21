@@ -1,0 +1,51 @@
+Employee Performance Management:
+    Summary (HR/Admin):
+        ✔ Overall completion rate @done (12/03/2024, 01:50:48)
+        ✔ Progress trackers @done (12/03/2024, 23:45:25)
+            ✔ H0 Creation Progress by department @done (12/03/2024, 23:45:29)
+            ✔ H1 Review progress by department @done (12/03/2024, 23:45:31)
+            ✔ H2 Review progress by department @done (12/03/2024, 23:45:35)
+            ✔ Send email reminders end point @done (13/03/2024, 10:30:31)
+        ✔ PMP scores by department (average) @done (12/03/2024, 11:44:54)
+        ✔ Values tracking @done (12/03/2024, 01:13:28)
+        ✔ Top 10 performancers (year) @done (11/03/2024, 23:03:21)
+        ✔ Top performancers congrats @done (11/03/2024, 21:54:01)
+    Agreements (Personal/Unit):
+        Database:
+            ✔ company_values (id, value, description) @done (21/02/2024, 14:07:12)
+            ✔ epm_agreements (id, employee_id, manager_id, role, period_year, period_half, employee_comments, manager_comments, development_area, training_recommendations, employee_sign_at, manager_sign_at) @done (21/02/2024, 17:46:33)
+            ✔ epm_agreements_values (id, agreement_id, company_value_id, comments) @done (21/02/2024, 17:35:12)
+            ✔ epm_agreements_objectives (id, agreement_id, bsc_objectives_id, weight, objective, employee_rating, agreed_rating, employee_comments, manager_comments) @done (21/02/2024, 17:47:00)
+            ✔ epm_pip (id, agreement_id, employee_id, manager_id,  start_at, finish_at, g-status (in progress, achieved, failed)) @done (21/02/2024, 18:52:50)
+            ✔ epm_pip_goals (id, pip_id, agreement_objective_id, resources, expected_result, actual_result, last_reviewed_at, achieved, achieved_at) @done (21/02/2024, 18:52:56)
+            ✔ audit logs @done (04/03/2024, 20:36:23)
+        Queries/Mutations:
+            ✔ Filters: year and halfs @done (04/03/2024, 02:46:16)
+            ✔ List of Agreements (CRUD) @done (04/03/2024, 02:05:26)
+            ✔ Objectives List (CRUD) @done (04/03/2024, 02:05:29)
+            ✔ Pip/pip goals List (CRUD) @done (04/03/2024, 03:12:58)
+        Automation:
+            ✔ Email warnings on setting / reviewing goals / pips @done (08/03/2024, 15:40:23)
+            ✔ Auto create PIP on goals on final review @done (04/03/2024, 03:16:37)
+    Settings:
+        ✔ Performance rating scale @done (21/02/2024, 12:13:50)
+        ✔ Overall performance rating @done (21/02/2024, 12:13:53)
+        ✔ Dates - create, review 1, review 2 @done (21/02/2024, 12:13:55)
+
+Balance Score Card:
+    ✔ Focus area (API / CRUD) @done (15/03/2024, 18:29:58)
+    ✔ Goals (API CRUD) @done (15/03/2024, 18:30:00)
+    ✔ Objectives (API / CRUD) @done (15/03/2024, 18:30:03)
+    ✔ Measures (API / CRUD) @done (15/03/2024, 18:30:05)
+
+Projects:
+    ✔ Tracking research projects @done (03/04/2024, 21:31:26)
+
+Tasks:
+    ✔ CRUD Tasks @done (27/03/2024, 20:32:09)
+
+Comments:
+    ✔ CRUD comments @done (27/03/2024, 20:32:12)
+
+Documents:
+    ✔ CRUD documents @done (10/04/2024, 19:54:51)
