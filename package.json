@@ -1,12 +1,12 @@
 {
-  "name": "yep-api",
+  "name": "iss-tracker-api",
   "version": "1.0.0",
   "main": "src/index.js",
   "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "pm2 start --name yep-api --watch --update-env",
+    "start": "pm2 start --name iss-tracker-api --watch --update-env",
     "run:migration": "yarn sequelize-cli db:migrate",
     "run:seed": "node database/seeds/seed.js",
     "run:jobs": "node src/jobs/index.js",
