@@ -37,9 +37,9 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: true,
       },
-      loginAt: {
-        allowNull: true,
-        type: Sequelize.DATE,
+      active: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         allowNull: false,

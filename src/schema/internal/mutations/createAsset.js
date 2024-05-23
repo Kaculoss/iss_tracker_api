@@ -1,5 +1,5 @@
 const { GraphQLNonNull, GraphQLString, GraphQLInt } = require("graphql");
-const { Asset, AuditLog } = require("../../../../database/models").models;
+const { Asset, AuditLog, Role } = require("../../../../database/models").models;
 const { AssetType } = require("../../types");
 const RequestError = require("../../../utils/RequestError.ts");
 
@@ -55,14 +55,10 @@ module.exports = {
     if (!user.isAssetManager() && !user.isSuperAdmin())
       throw new Error("Only Asset Managers can create assets");
 
-    const allAssets = await Asset.findAll();
-
-    const code = `ABC-${(allAssets.length + 1).toString().padStart(4, "0")}`;
-
     const asset = await Asset.create(
       {
         type,
-        code,
+        code: "new-code",
         name,
         price,
         description,
@@ -74,9 +70,16 @@ module.exports = {
       { user_id: user.id }
     );
 
+    await asset.update({
+      code: `HMA-${asset.id.toString().padStart(4, "0")}`,
+    });
+
+    const role = await Role.findByPk(user.role_id);
+
     await AuditLog.create({
       type: "create",
       user_id: user.id,
+      user_role: role.name,
       event: `${user.fullName()} created asset ${asset.code}`,
       createdAt: new Date(),
       updatedAt: null,

@@ -4,7 +4,7 @@ const moment = require("moment");
 
 class AuditLog extends Model {
   static associate(models) {
-    AuditLog.belongsTo(models.User, { as: "Changer", foreignKey: "user_id" });
+    AuditLog.belongsTo(models.User, { foreignKey: "user_id" });
   }
 }
 
@@ -16,6 +16,10 @@ AuditLog.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
+      require: true,
+    },
+    user_role: {
+      type: DataTypes.STRING,
       require: true,
     },
     event: {

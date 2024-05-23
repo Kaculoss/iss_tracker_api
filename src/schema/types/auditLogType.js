@@ -1,5 +1,10 @@
-const { GraphQLObjectType, GraphQLID, GraphQLNonNull, GraphQLString } = require('graphql')
-const DateType = require('./dateType')
+const {
+  GraphQLObjectType,
+  GraphQLID,
+  GraphQLNonNull,
+  GraphQLString,
+} = require("graphql");
+const DateType = require("./dateType");
 
 const AuditLogType = new GraphQLObjectType({
   name: "AuditLogType",
@@ -19,10 +24,13 @@ const AuditLogType = new GraphQLObjectType({
     type: {
       type: new GraphQLNonNull(GraphQLString),
     },
+    user_role: {
+      type: new GraphQLNonNull(GraphQLString),
+    },
     createdAt: {
       type: DateType,
     },
   }),
 });
 
-module.exports = AuditLogType
+module.exports = AuditLogType;

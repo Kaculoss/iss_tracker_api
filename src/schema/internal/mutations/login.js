@@ -1,24 +1,25 @@
 require("dotenv").config();
 
 const { GraphQLString, GraphQLNonNull, GraphQLObjectType } = require("graphql");
+const RequestError = require("../../../utils/RequestError.ts");
 
 const bcrypt = require("bcryptjs");
 
 const { UserType } = require("../../types");
-const { User, AuditLog } = require("../../../../database/models").models;
+const { User, AuditLog, Role } = require("../../../../database/models").models;
 const Jwt = require("../../../helpers/jwt");
 
 async function validate(args) {
   const errors = [];
 
-  if (args.email.length <= 8) {
+  if (args.email.length <= 12) {
     errors.push({ field: "email", message: `Invalid Email` });
   }
 
-  if (!args.email.endsWith("@abc.com")) {
+  if (!args.email.endsWith("@hohoema.com")) {
     errors.push({
       field: "email",
-      message: `Only Employees of ABC can login`,
+      message: `Only Employees of Hohoe Municipal Assembly can login`,
     });
   }
 
@@ -69,9 +70,14 @@ module.exports = {
 
       const access_token = Jwt.generateToken(user);
 
+      await user.update({ active: true }, { user_id: user.id });
+
+      const role = await Role.findByPk(user.role_id);
+
       await AuditLog.create({
         type: "login",
         user_id: user.id,
+        user_role: role.name,
         event: `${user.fullName()} logged in`,
         createdAt: new Date(),
         updatedAt: null,

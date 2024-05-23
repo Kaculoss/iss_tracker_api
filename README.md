@@ -1,5 +1,3 @@
-# YeP API
-
 ## What you need
 
 - [Nodejs](https://nodejs.org/en/): This project uses `Node v 12.17.0`, we try to stay on the latest stable or releast candidate version. We recommend [nvm](https://github.com/nvm-sh/nvm) for nodejs version management but feel free to use what works for you.
@@ -8,13 +6,7 @@
 
 - [Postgres](https://www.postgresql.org/): You can grab the latest version of postgres by downloading it directly on the website.
 
-- [Git](https://git-scm.com): We use [Git](https://git-scm.com) and [Gitlab](https://gitlab.com) for version control and collaboration.
-  If you don't have a [Gitlab](https://github.com) account already you can create one [here](https://gitlab.com/users/sign_up).
-  Follow instructions [here](https://git-scm.com/downloads) to install the latest version of Git for your system.
-
 ## Project Setup
-
-First things first, Clone this repository on your computer with the following command: `git clone https://gitlab.com/yem-yep/yep-api.git`
 
 ### Direct Setup
 

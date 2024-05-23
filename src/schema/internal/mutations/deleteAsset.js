@@ -1,5 +1,5 @@
 const { GraphQLNonNull, GraphQLID, GraphQLBoolean } = require("graphql");
-const { Asset, AuditLog } =
+const { Asset, AuditLog, Role } =
   require("../../../../database/models/index.js").models;
 
 module.exports = {
@@ -23,9 +23,12 @@ module.exports = {
       }
       await Asset.destroy({ where: { id: args.id } }, { user_id: user.id });
 
+      const role = await Role.findByPk(user.role_id);
+
       await AuditLog.create({
         type: "delete",
         user_id: user.id,
+        user_role: role.name,
         event: `${user.fullName()} deleted asset ${found.code}`,
         createdAt: new Date(),
         updatedAt: null,

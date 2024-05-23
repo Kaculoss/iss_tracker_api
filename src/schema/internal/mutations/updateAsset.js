@@ -6,7 +6,7 @@ const {
   GraphQLID,
   GraphQLInt,
 } = require("graphql");
-const { Asset, AuditLog } =
+const { Asset, AuditLog, Role } =
   require("../../../../database/models/index.js").models;
 const { AssetType } = require("../../types/index.js");
 const RequestError = require("../../../utils/RequestError.ts");
@@ -110,9 +110,12 @@ module.exports = {
     }
     await found.update(params, { user_id: user.id });
 
+    const role = await Role.findByPk(user.role_id);
+
     await AuditLog.create({
       type: "update",
       user_id: user.id,
+      user_role: role.name,
       event: `${user.fullName()} updated asset ${found.code}`,
       createdAt: new Date(),
       updatedAt: null,

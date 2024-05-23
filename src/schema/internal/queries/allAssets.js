@@ -11,6 +11,6 @@ module.exports = {
     if (!user.isAdmin() && !user.isAssetManager() && !user.isSuperAdmin())
       throw new Error("Only Admins and Asset managers can read all assets");
 
-    return Asset.findAll({ order: [["code", "ASC"]] });
+    return Asset.findAll({ order: [["code", "DESC"]] });
   },
 };

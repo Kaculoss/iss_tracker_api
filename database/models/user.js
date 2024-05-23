@@ -55,9 +55,9 @@ User.init(
       allowNull: false,
       type: DataTypes.STRING,
     },
-    loginAt: {
-      allowNull: true,
-      type: DataTypes.DATE,
+    active: {
+      allowNull: false,
+      type: DataTypes.BOOLEAN,
     },
     createdAt: {
       allowNull: false,

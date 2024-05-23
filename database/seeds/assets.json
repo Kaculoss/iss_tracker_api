@@ -1,6 +1,6 @@
 [
   {
-    "code": "ABC-0001",
+    "code": "HMA-0001",
     "name": "Hp Pc",
     "type": "laptop",
     "price": 12,
@@ -9,7 +9,7 @@
     "location": "accra"
   },
   {
-    "code": "ABC-0002",
+    "code": "HMA-0002",
     "name": "Dell Pc",
     "type": "laptop",
     "price": 15,
@@ -18,7 +18,7 @@
     "location": "wow"
   },
   {
-    "code": "ABC-0003",
+    "code": "HMA-0003",
     "name": "Canon",
     "type": "printer",
     "price": 34,

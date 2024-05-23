@@ -56,6 +56,7 @@ module.exports = {
     await AuditLog.create({
       type: "assignment",
       user_id: user.id,
+      user_role: role.name,
       event: `${user.fullName()} assigned ${foundUser.fullName()} to the ${
         role.name
       } Role`,

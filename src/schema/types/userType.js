@@ -3,6 +3,7 @@ const {
   GraphQLNonNull,
   GraphQLID,
   GraphQLString,
+  GraphQLBoolean,
 } = require("graphql");
 const DateType = require("./dateType");
 
@@ -36,8 +37,8 @@ const UserType = new GraphQLObjectType({
     avatar: {
       type: GraphQLString,
     },
-    loginAt: {
-      type: DateType,
+    active: {
+      type: new GraphQLNonNull(GraphQLBoolean),
     },
     createdAt: {
       type: DateType,

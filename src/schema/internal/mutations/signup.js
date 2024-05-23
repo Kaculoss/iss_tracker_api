@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 const { GraphQLString, GraphQLNonNull, GraphQLObjectType } = require("graphql");
 
 const { UserType } = require("../../types");
-const { User, AuditLog } = require("../../../../database/models").models;
+const { User, AuditLog, Role } = require("../../../../database/models").models;
 const Jwt = require("../../../helpers/jwt");
 const RequestError = require("../../../utils/RequestError.ts");
 
@@ -16,10 +16,10 @@ async function validate(args, item) {
     errors.push({ field: "email", message: `Invalid Email` });
   }
 
-  if (!args.email.endsWith("@abc.com")) {
+  if (!args.email.endsWith("@hohoema.com")) {
     errors.push({
       field: "email",
-      message: `Only Employees of ABC can register`,
+      message: `Only Employees of Hohoe Municipal Assembly can register`,
     });
   }
 
@@ -94,6 +94,7 @@ module.exports = {
         role_id: 4,
         avatar: "",
         password: encryptedPassword,
+        active: true,
         createdAt: new Date(),
         updatedAt: new Date(),
         deletedAt: null,
@@ -101,9 +102,12 @@ module.exports = {
 
       const access_token = Jwt.generateToken(newUser);
 
+      const role = await Role.findByPk(4);
+
       await AuditLog.create({
         type: "signup",
         user_id: newUser.id,
+        user_role: role.name,
         event: `${newUser.fullName()} signed up`,
         createdAt: new Date(),
         updatedAt: null,
